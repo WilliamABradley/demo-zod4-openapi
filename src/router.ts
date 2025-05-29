@@ -10,17 +10,6 @@ import { DefaultRegistry } from "./openapi.js";
 export const HttpMethod = z.enum(["GET", "POST", "PUT", "DELETE"]);
 export type HttpMethod = z.infer<typeof HttpMethod>;
 
-// No multi-value header support in API Gateway v2, comma delimited instead (",").
-export const HttpHeaders = z.record(z.string(), z.string());
-export type HttpHeaders = z.infer<typeof HttpHeaders>;
-
-export const HttpPathParams = z.record(z.string(), z.string());
-export type HttpPathParams = z.infer<typeof HttpQueryParams>;
-
-// No multi-value query support in API Gateway v2, comma delimited instead (",").
-export const HttpQueryParams = z.record(z.string(), z.string());
-export type HttpQueryParams = z.infer<typeof HttpQueryParams>;
-
 export type RouteMetadata = {
   hideFromOpenAPI?: boolean;
   registries?: OpenAPIRegistry[];
