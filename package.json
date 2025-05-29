@@ -1,0 +1,19 @@
+{
+  "name": "demo-zod4-openapi",
+  "version": "1.0.0",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.24",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@asteasolutions/zod-to-openapi": "file:../zod-to-openapi",
+    "yaml": "^2.8.0",
+    "zod": "^3.25.34"
+  }
+}
