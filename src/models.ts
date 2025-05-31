@@ -1,6 +1,9 @@
 import z from "zod/v4";
 
-export const Who = z.string().meta({ id: "Who" });
+export const Who = z
+  .string()
+  .regex(/^[a-zA-Z]+$/, "Who must be a string with only letters")
+  .meta({ id: "Who", type: "whoid", examples: ["World"] });
 export type Who = z.infer<typeof Who>;
 
 export const MySpecialPayload = z
