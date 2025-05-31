@@ -14,6 +14,6 @@
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "file:../zod-to-openapi",
     "yaml": "^2.8.0",
-    "zod": "^3.25.34"
+    "zod": "^3.25.42"
   }
 }

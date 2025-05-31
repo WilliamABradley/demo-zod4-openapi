@@ -35,15 +35,9 @@ export const OpenAPIRoute = makeRoute({
     try {
       return generateOpenAPIDocument({
         info: {
-          title: "akahu-apply",
+          title: "demo-zod4-openapi",
           version: "1.0.0",
         },
-        servers: [
-          {
-            url: "https://web.apply.akahu.nz/v1",
-            description: "Akahu Apply web API",
-          },
-        ],
       });
     } catch (error) {
       console.error("generateOpenAPIDocument", error);
