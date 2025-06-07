@@ -12,8 +12,8 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@asteasolutions/zod-to-openapi": "file:../zod-to-openapi",
+    "@asteasolutions/zod-to-openapi": "^8.0.0-beta.3",
     "yaml": "^2.8.0",
-    "zod": "^3.25.42"
+    "zod": "^3.25.56"
   }
 }
