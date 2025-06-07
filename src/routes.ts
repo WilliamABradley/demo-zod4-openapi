@@ -1,7 +1,14 @@
 import z from "zod/v4";
 import { makeRoute } from "./router.js";
 import { generateOpenAPIDocument } from "./openapi.js";
-import { MySpecialPayload, MySpecialResponse } from "./models.js";
+import {
+  APIIssue,
+  APIIssueWorking,
+  MySpecialPayload,
+  MySpecialResponse,
+  SpecificAPIIssue,
+  SpecificAPIIssueWorking,
+} from "./models.js";
 
 export const MyRoute = makeRoute({
   path: "/my-route",
@@ -20,6 +27,20 @@ export const MyRouteWithPathParams = makeRoute({
   response: MySpecialResponse,
   handler: async ({ pathParams: { who } }) => {
     return { message: `Hello, ${who}!`, who };
+  },
+});
+
+export const ErrorRoute = makeRoute({
+  method: "GET",
+  path: "/error",
+  response: z.object({
+    issue: APIIssue,
+    issueWorking: APIIssueWorking,
+    specificIssue: SpecificAPIIssue,
+    specificIssueWorking: SpecificAPIIssueWorking,
+  }),
+  handler: async () => {
+    throw new Error("This is a simulated error");
   },
 });
 

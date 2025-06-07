@@ -1,5 +1,44 @@
 import z from "zod/v4";
 
+export const APIIssue = z
+  .object({
+    code: z.string(),
+    message: z.string(),
+    path: z.array(
+      z
+        .union([z.string(), z.number()])
+        .meta({ id: "APIIssuePathPart" })
+        .openapi({
+          anyOf: [],
+          oneOf: [{ type: "string" }, { type: "integer" }],
+        })
+    ),
+  })
+  .meta({ id: "APIIssue" });
+export type APIIssue = z.infer<typeof APIIssue>;
+
+export const APIIssueWorking = z
+  .object({
+    code: z.string(),
+    message: z.string(),
+    path: z.array(
+      z.union([z.string(), z.number()]).openapi({
+        anyOf: [],
+        oneOf: [{ type: "string" }, { type: "integer" }],
+      })
+    ),
+  })
+  .meta({ id: "APIIssueWorking" });
+export type APIIssueWorking = z.infer<typeof APIIssueWorking>;
+
+export const SpecificAPIIssue = APIIssue.extend({
+  code: z.literal("specific_error_code"),
+});
+
+export const SpecificAPIIssueWorking = APIIssueWorking.extend({
+  code: z.literal("specific_error_code"),
+});
+
 export const TestId = z.string().meta({
   id: "TestId",
   type: "prefixid",

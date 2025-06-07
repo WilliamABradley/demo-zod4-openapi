@@ -3,7 +3,6 @@ import {
   ResponseConfig,
   ZodContentObject,
 } from "@asteasolutions/zod-to-openapi";
-import type { SecuritySchemeObject } from "openapi3-ts/oas31";
 import { z } from "zod/v4";
 import { DefaultRegistry } from "./openapi.js";
 
@@ -116,7 +115,7 @@ export function makeRoute<
 
 export type APIResult = {
   code: number;
-  headers?: HttpHeaders;
+  headers?: Record<string, string>;
   body?: string | Buffer;
 };
 
