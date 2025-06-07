@@ -14,7 +14,7 @@ export const MyRoute = makeRoute({
 });
 
 export const MyRouteWithPathParams = makeRoute({
-  path: "/my-route/:who",
+  path: "/my-route/{who}",
   method: "GET",
   pathParams: MySpecialPayload,
   response: MySpecialResponse,
